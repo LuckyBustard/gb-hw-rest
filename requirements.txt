@@ -3,6 +3,7 @@ Django==4.1.7
 django-cors-headers==3.14.0
 django-filter==21.1
 djangorestframework==3.14.0
+djangorestframework-camel-case==1.4.2
 importlib-metadata==6.0.0
 Markdown==3.4.1
 psycopg2-binary==2.9.5
