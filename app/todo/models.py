@@ -11,8 +11,9 @@ class Project(models.Model):
 
 class Task(models.Model):
     id = models.AutoField(primary_key=True)
-    project = models.OneToOneField(Project, on_delete=models.DO_NOTHING)
-    creator = models.OneToOneField(AppUser, on_delete=models.DO_NOTHING)
+    project = models.ForeignKey(Project, on_delete=models.DO_NOTHING)
+    creator = models.ForeignKey(AppUser, on_delete=models.DO_NOTHING)
     text = models.TextField(max_length=1000)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    closet_at = models.DateTimeField(null=True)

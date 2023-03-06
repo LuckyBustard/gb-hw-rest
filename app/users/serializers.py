@@ -5,4 +5,4 @@ from .models import AppUser
 class AppUserModelSerializer(HyperlinkedModelSerializer):
     class Meta:
         model = AppUser
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['url', 'username', 'email', 'first_name', 'last_name']
