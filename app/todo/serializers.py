@@ -1,14 +1,18 @@
-from rest_framework.serializers import HyperlinkedModelSerializer
+from rest_framework.serializers import ModelSerializer
+from rest_framework.serializers import DateTimeField
 from todo.models import Project, Task
 
 
-class ProjectSerializer(HyperlinkedModelSerializer):
+class ProjectSerializer(ModelSerializer):
     class Meta:
         model = Project
         fields = '__all__'
 
 
-class TaskSerializer(HyperlinkedModelSerializer):
+class TaskSerializer(ModelSerializer):
+    created_at = DateTimeField(format='%d.%m.%Y %H:%M:%S')
+    updated_at = DateTimeField(format='%d.%m.%Y %H:%M:%S')
+
     class Meta:
         model = Task
         fields = '__all__'

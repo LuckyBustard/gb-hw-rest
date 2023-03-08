@@ -1,23 +1,33 @@
 import * as React from 'react'
-import * as ReactDOM from 'react-dom'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { MainLayout } from "./layouts/MainLayout"
-import { Index } from "./pages/Index"
 import {store} from "./store"
+import "./i18n"
+import { MainLayout } from "./layouts/MainLayout"
+import { Users } from "./pages/Users"
+import {Projects} from "./pages/Projects"
+import {Tasks} from "./pages/Tasks"
 
-const App = () => (
+export const App = () => (
     <Provider store={store}>
         <BrowserRouter>
             <Routes>
+                <Route path="/users" element={
+                    <MainLayout>
+                        <Users />
+                    </MainLayout>
+                } />
+                <Route path="/tasks" element={
+                    <MainLayout>
+                        <Tasks />
+                    </MainLayout>
+                } />
                 <Route path="*" element={
                     <MainLayout>
-                        <Index />
+                        <Projects />
                     </MainLayout>
                 } />
             </Routes>
         </BrowserRouter>
     </Provider>
 )
-
-ReactDOM.render(<App />, document.getElementById("app"))

@@ -1,22 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit'
-import {fetchUsers} from "./userAsyncActions";
+import {fetchTasks} from "./taskAsyncActions";
 
 const initialState = {
-    users: {},
+    tasks: {},
 }
 
-export const userSlice = createSlice({
-    name: "user",
+export const taskSlice = createSlice({
+    name: "task",
     initialState,
     extraReducers: (builder) => {
-        builder.addCase(fetchUsers.fulfilled, (state, action) => {
-            const users = action.payload.results.reduce((carry, item) => {
+        builder.addCase(fetchTasks.fulfilled, (state, action) => {
+            const tasks = action.payload.results.reduce((carry, item) => {
                 carry[item.id] = item
                 return carry
             }, {})
             return {
                 ...state,
-                users,
+                tasks,
             }
         })
     }
