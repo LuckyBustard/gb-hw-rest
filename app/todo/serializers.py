@@ -1,5 +1,5 @@
 from rest_framework.serializers import ModelSerializer
-from rest_framework.serializers import DateTimeField, RelatedField
+from rest_framework.serializers import DateTimeField
 from todo.models import Project, Task
 
 
