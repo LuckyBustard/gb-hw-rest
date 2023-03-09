@@ -1,6 +1,6 @@
 from django.utils.timezone import now
 from rest_framework.viewsets import ModelViewSet
-from rest_framework.renderers import JSONRenderer, BrowsableAPIRenderer
+from djangorestframework_camel_case.render import CamelCaseJSONRenderer, CamelCaseBrowsableAPIRenderer
 from .models import Project, Task
 from .serializers import ProjectSerializer, TaskSerializer
 from .pagination import ProjectsModelLimitOffsetPagination, TodoModelLimitOffsetPagination
@@ -8,7 +8,7 @@ from .filters import ProjectFilter, TaskFilter
 
 
 class ProjectsModelViewSet(ModelViewSet):
-    renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
+    renderer_classes = [CamelCaseJSONRenderer, CamelCaseBrowsableAPIRenderer]
     queryset = Project.objects.all()
     serializer_class = ProjectSerializer
     pagination_class = ProjectsModelLimitOffsetPagination
@@ -16,7 +16,7 @@ class ProjectsModelViewSet(ModelViewSet):
 
 
 class TaskModelViewSet(ModelViewSet):
-    renderer_classes = [JSONRenderer, BrowsableAPIRenderer]
+    renderer_classes = [CamelCaseJSONRenderer, CamelCaseBrowsableAPIRenderer]
     queryset = Task.objects.all()
     serializer_class = TaskSerializer
     pagination_class = TodoModelLimitOffsetPagination
