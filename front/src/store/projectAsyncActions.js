@@ -5,7 +5,7 @@ export const fetchProjects = createAsyncThunk(
   'users/fetchProjects',
   async () => {
       try {
-          return  await projectApi.fetchProjects()
+          return await projectApi.fetchProjects()
       } catch (e) {
           console.log(e)
       }

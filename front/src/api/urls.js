@@ -3,4 +3,5 @@ export const urls = {
     user: '/api/users/<id>/',
     projectsList: '/api/projects/',
     tasksList: '/api/tasks/',
+    auth: '/api-token-auth/',
 }
