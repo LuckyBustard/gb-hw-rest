@@ -23,7 +23,8 @@ export function Projects()
 
     return (
         <div className="page-content mt-2">
-            <BaseTable headers={['id', 'name', 'repositoryLink']} items={projects} transNS="project" />
+            <BaseTable headers={['id', 'name', 'repositoryLink']}
+                       items={projects} transNS="project" bodyKey="id" />
         </div>
     )
 }

@@ -1,16 +1,16 @@
-import {apiClient} from "./axios"
 import {urls} from "./urls"
+import {AnyApi} from "./anyApi"
 
-class UserApi {
+class UserApi extends AnyApi {
     async fetchUsers()
     {
-        const result = await apiClient.get(urls.usersList)
+        const result = await this.client().get(urls.usersList)
         return result.data
     }
 
     async fetchUser(id)
     {
-        const result = await apiClient.get(urls.user.replace('<id>', id))
+        const result = await this.client().get(urls.user.replace('<id>', id))
         return result.data
     }
 }

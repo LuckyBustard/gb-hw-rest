@@ -7,27 +7,30 @@ import { MainLayout } from "./layouts/MainLayout"
 import { Users } from "./pages/Users"
 import {Projects} from "./pages/Projects"
 import {Tasks} from "./pages/Tasks"
+import {MainContextWrapper} from "./context/mainContext"
 
 export const App = () => (
     <Provider store={store}>
-        <BrowserRouter>
-            <Routes>
-                <Route path="/users" element={
-                    <MainLayout>
-                        <Users />
-                    </MainLayout>
-                } />
-                <Route path="/tasks" element={
-                    <MainLayout>
-                        <Tasks />
-                    </MainLayout>
-                } />
-                <Route path="*" element={
-                    <MainLayout>
-                        <Projects />
-                    </MainLayout>
-                } />
-            </Routes>
-        </BrowserRouter>
+        <MainContextWrapper>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/users" element={
+                        <MainLayout>
+                            <Users />
+                        </MainLayout>
+                    } />
+                    <Route path="/tasks" element={
+                        <MainLayout>
+                            <Tasks />
+                        </MainLayout>
+                    } />
+                    <Route path="*" element={
+                        <MainLayout>
+                            <Projects />
+                        </MainLayout>
+                    } />
+                </Routes>
+            </BrowserRouter>
+        </MainContextWrapper>
     </Provider>
 )

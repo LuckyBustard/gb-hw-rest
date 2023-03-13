@@ -23,7 +23,8 @@ export function Tasks()
 
     return (
         <div className="page-content mt-2">
-            <BaseTable headers={['id', 'text', 'createdAt', 'updatedAt']} items={tasks} transNS="task" />
+            <BaseTable headers={['id', 'text', 'createdAt', 'updatedAt']}
+                       items={tasks} transNS="task"  bodyKey="id" />
         </div>
     )
 }

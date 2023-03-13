@@ -1,10 +1,10 @@
-import {apiClient} from "./axios"
 import {urls} from "./urls"
+import {AnyApi} from "./anyApi"
 
-class TaskApi {
+class TaskApi extends AnyApi {
     async fetchTasks()
     {
-        const result = await apiClient.get(urls.tasksList)
+        const result = await this.client().get(urls.tasksList)
         return result.data
     }
 }
