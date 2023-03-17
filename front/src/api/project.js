@@ -1,10 +1,11 @@
-import {apiClient} from "./axios"
 import {urls} from "./urls"
+import {AnyApi} from "./anyApi"
 
-class ProjectApi {
+class ProjectApi extends AnyApi {
     async fetchProjects()
     {
-        const result = await apiClient.get(urls.projectsList)
+        await this.waitPromise
+        const result = await this.client().get(urls.projectsList)
         return result.data
     }
 }

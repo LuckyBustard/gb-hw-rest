@@ -23,7 +23,8 @@ export function Users()
 
     return (
         <div className="page-content mt-2">
-            <BaseTable headers={['username', 'email', 'lastName', 'firstName']} items={users} transNS="user" />
+            <BaseTable headers={['username', 'email', 'lastName', 'firstName']}
+                       items={users} transNS="user"  bodyKey="id" />
         </div>
     )
 }
