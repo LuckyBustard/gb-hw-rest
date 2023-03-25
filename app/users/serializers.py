@@ -5,4 +5,9 @@ from .models import AppUser
 class AppUserModelSerializer(ModelSerializer):
     class Meta:
         model = AppUser
-        fields = ['url', 'username', 'email', 'first_name', 'last_name', 'id']
+        fields = ['username', 'email', 'first_name', 'last_name']
+
+class AppFullUserModelSerializer(ModelSerializer):
+    class Meta:
+        model = AppUser
+        fields = ['username', 'email', 'first_name', 'last_name', 'is_superuser', 'is_staff']
