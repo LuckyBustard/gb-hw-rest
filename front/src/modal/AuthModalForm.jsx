@@ -52,7 +52,7 @@ export function AuthModalForm() {
                         {t('login')}
                     </Button>
                     <Button  variant="secondary" onClick={() => hideModalAuth()}>
-                        {t('close')}
+                        {t('cancel')}
                     </Button>
                 </Form>
             </Modal.Body>
