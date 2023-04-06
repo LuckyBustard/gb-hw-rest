@@ -1,5 +1,8 @@
 import axios from "axios"
 import {urls} from "./urls"
+import * as process from 'process'
+
+const apiUrl = process.env.API_URL || 'http://localhost:8000'
 
 class ApiClient {
     apiClient
@@ -9,7 +12,7 @@ class ApiClient {
 
     constructor() {
         this.apiClient = axios.create({
-            baseURL: 'http://localhost:8000'
+            baseURL: apiUrl
         })
     }
 

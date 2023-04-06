@@ -3,6 +3,7 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const publicPath = process.env.SERVER_URL || 'http://localhost:3000/';
+const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => ({
     output: {
@@ -79,6 +80,9 @@ module.exports = (env, argv) => ({
     },
 
     plugins: [
+        new Dotenv({
+          systemvars: true,
+        }),
         new MiniCssExtractPlugin({
             filename: 'style.[contenthash].bundle.css',
         }),
