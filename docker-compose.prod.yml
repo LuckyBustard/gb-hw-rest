@@ -1,0 +1,50 @@
+version: "3.2"
+
+services:
+  django:
+    command: ["gunicorn", "config.wsgi:application", "--bind", "0.0.0.0:8000"]
+    build:
+      context: "."
+      dockerfile: "./prod.django.dockerfile"
+    environment:
+      - DJANGO_SECRET_KEY=3h5@e047d+nk&0i+afo@6a-o*r*wnicj2e@gqpbno&*(zx4k10
+      - DJANGO_SETTINGS_MODULE=config.conf_prod
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    links:
+      - postgres
+    networks:
+      - main
+
+  postgres:
+    image: postgres:14-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=main
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password_user
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+    networks:
+      - main
+
+  front:
+    build:
+      context: "."
+      dockerfile: "./prod.front.dockerfile"
+    ports:
+      - "8083:80"
+    restart: always
+    depends_on:
+      - django
+    networks:
+      - main
+
+networks:
+  main:
+    driver: "bridge"
