@@ -9,10 +9,6 @@ export function Users()
     const dispatch = useDispatch()
     const { users } = useSelector((state) => state.user)
 
-    useEffect(() => {
-        dispatch(fetchUsers())
-    }, [])
-
     if (!users) {
         return (
             <div className="page-content mt-2">

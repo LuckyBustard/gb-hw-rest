@@ -3,6 +3,8 @@ import {Col, Container, Row, ThemeProvider} from "react-bootstrap"
 import {Header} from "./Header"
 import {Footer} from "./Footer"
 import {AuthModalForm} from "../modal/AuthModalForm"
+import {ProjectModalForm} from "../modal/ProjectModalForm"
+import {TaskModalForm} from "../modal/TaskModalForm"
 
 export function MainLayout({children}) {
     return (
@@ -22,6 +24,8 @@ export function MainLayout({children}) {
             </Container>
             <Footer />
             <AuthModalForm />
+            <ProjectModalForm />
+            <TaskModalForm />
         </ThemeProvider>
     )
 }
